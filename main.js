@@ -1,6 +1,44 @@
 /*------------------------------------------------------------- 
                             FUNCTIONS 
 --------------------------------------------------------------*/
+// Milestone 2 - 
+// Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo.
+// Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like.
+function likeBtnIdentifier(){
+
+    document.querySelectorAll('.like-button').forEach(likeBtn => {
+        likeBtn.addEventListener('click', event => {
+
+            likeBtn.removeAttribute("href");
+
+            let currentBtn = likeBtn.getAttribute("data-postid");
+
+            if(currentBtn === "1"){
+                likeBtn.classList.add("like-button--liked");
+                myLikes.push(currentBtn);
+                console.log(myLikes);
+            }else if(currentBtn === "2"){
+                likeBtn.classList.add("like-button--liked");
+                myLikes.push(currentBtn);
+                console.log(myLikes);
+            }else if(currentBtn === "3"){
+                likeBtn.classList.add("like-button--liked");
+                myLikes.push(currentBtn);
+                console.log(myLikes);
+            }else if(currentBtn === "4"){
+                likeBtn.classList.add("like-button--liked");
+                myLikes.push(currentBtn);
+                console.log(myLikes);
+            }else if(currentBtn === "5"){
+                likeBtn.classList.add("like-button--liked");
+                myLikes.push(currentBtn);
+                console.log(myLikes);
+            }
+            
+        });
+    })
+
+}
 
 /*------------------------------------------------------------- 
                             /FUNCTIONS 
@@ -66,6 +104,8 @@ const posts = [
 
 // Milestone 1 - Prendendo come riferimento il layout di esempio presente nell'html, stampiamo i post del nostro feed.
 const postsContainer = document.querySelector(".posts-list");
+// Container per salvare i miei like
+let myLikes = [];
 
 for (let i = 0; i < posts.length; i++) {
     
@@ -95,7 +135,7 @@ for (let i = 0; i < posts.length; i++) {
             <div class="post__footer">
                 <div class="likes js-likes">
                     <div class="likes__cta">
-                        <a class="like-button  js-like-button" href="#" data-postid="1">
+                        <a class="like-button  js-like-button" href="#" data-postid="${posts[i].id}">
                             <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                             <span class="like-button__label">Mi Piace</span>
                         </a>
@@ -131,7 +171,7 @@ for (let i = 0; i < posts.length; i++) {
             <div class="post__footer">
                 <div class="likes js-likes">
                     <div class="likes__cta">
-                        <a class="like-button  js-like-button" href="#" data-postid="1">
+                        <a class="like-button  js-like-button" href="#" data-postid="${posts[i].id}">
                             <i class="like-button__icon fas fa-thumbs-up" aria-hidden="true"></i>
                             <span class="like-button__label">Mi Piace</span>
                         </a>
@@ -149,11 +189,7 @@ for (let i = 0; i < posts.length; i++) {
     postsContainer.append(newPost); 
 }
 
-
-// Milestone 2 - 
-// Se clicchiamo sul tasto "Mi Piace" cambiamo il colore al testo del bottone e incrementiamo il counter dei likes relativo.
-// Salviamo in un secondo array gli id dei post ai quali abbiamo messo il like.
-
+likeBtnIdentifier();
 
 // BONUS
 // 3. Al click su un pulsante "Mi Piace" di un post, se abbiamo già cliccato dobbiamo decrementare il contatore e cambiare il colore del bottone.
